@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STYLE DIARY</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      background-color: rgba(255, 245, 250, 0.9); /* Lớp nền mờ để chữ dễ đọc */
+      color: #4a2c2a;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Thêm hiệu ứng trang trí */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 245, 250, 0.7), rgba(240, 240, 250, 0.7));
+      z-index: -1;
+    }
+    header {
+      background: linear-gradient(90deg, #ff80ab, #f48fb1);
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+    .logo {
+      width: 130px;
+      height: auto;
+      margin-bottom: 15px;
+      filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.5em;
+      color: #fff;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+      font-family: 'Playfair Display', serif;
+    }
+    header p {
+      color: #fff;
+      font-style: italic;
+      margin-top: 8px;
+      font-size: 1.3em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+    header nav ul li {
+      margin: 0 12px;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    header nav ul li a:hover {
+      background: #fff;
+      color: #ff80ab;
+      transform: translateY(-3px);
+    }
+    header img {
+      position: absolute;
+      top: 15px;
+      width: 80px;
+      height: 80px;
+      transition: transform 0.3s;
+    }
+    header img.left {
+      left: 15px;
+    }
+    header img.right {
+      right: 15px;
+    }
+    header img:hover {
+      transform: scale(1.2);
+    }
+    main {
+      padding: 30px;
+      position: relative;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      background: linear-gradient(45deg, #ff80ab, #f48fb1);
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 1.4em;
+      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 6px 15px rgba(241, 148, 168, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(241, 148, 168, 0.7);
+    }
+    .section {
+      margin-bottom: 50px;
+      padding: 25px;
+      background: rgba(255, 245, 250, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      border: 2px solid #f48fb1; /* Thêm viền trang trí */
+    }
+    h2, h3 {
+      color: #6b4e4e;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .outfits {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+      justify-items: center;
+      padding: 20px;
+    }
+    .outfit {
+      background: linear-gradient(135deg, #fff, #fce4ec);
+      border-radius: 18px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      padding: 15px;
+      text-align: center;
+      width: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 360px;
+    }
+    .outfit:hover {
+      transform: scale(1.07);
+      box-shadow: 0 10px 20px rgba(241, 148, 168, 0.5);
+    }
+    .outfit .image-container {
+      height: 260px;
+      overflow: hidden;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #f48fb1;
+      margin-bottom: 12px;
+    }
+    .outfit img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .outfit:hover img {
+      transform: scale(1.1);
+    }
+    .outfit button {
+      background: #ff80ab;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: auto;
+      width: 100%;
+    }
+    .outfit button:hover {
+      background: #f06292;
+    }
+    form input, form select, form textarea {
+      padding: 14px;
+      margin: 15px;
+      border: 3px solid #f48fb1;
+      border-radius: 10px;
+      font-size: 1.2em;
+      background: #fff;
+      color: #4a2c2a;
+      transition: border-color 0.3s;
+    }
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #ff80ab;
+      outline: none;
+    }
+    .community-post, .comment-form {
+      background: linear-gradient(135deg, #fff, #fce4ec);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #ff80ab;
+    }
+    .description {
+      font-style: italic;
+      color: #6b4e4e;
+      margin: 15px 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 1.1em;
+    }
+    .intro-section {
+      background: rgba(255, 245, 250, 0.95);
+      padding: 30px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      text-align: left;
+      border: 2px solid #f48fb1; /* Thêm viền trang trí */
+    }
+    .intro-section h2 {
+      font-size: 2em;
+      color: #ff80ab;
+      margin-bottom: 15px;
+    }
+    .intro-section p {
+      font-size: 1.1em;
+      color: #4a2c2a;
+      line-height: 1.6;
+    }
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 25px;
+      background: rgba(255, 245, 250, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 25px;
+      flex-wrap: wrap;
+      border: 2px solid #f48fb1; /* Thêm viền trang trí */
+    }
+    .contact div {
+      text-align: left;
+      min-width: 280px;
+    }
+    .contact input {
+      width: 240px;
+      padding: 14px;
+      border: 3px solid #f48fb1;
+      border-radius: 10px;
+      font-size: 1.2em;
+      color: #4a2c2a;
+    }
+    .contact button {
+      background: linear-gradient(45deg, #ff80ab, #f48fb1);
+      padding: 12px 24px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+    }
+    .social-icons {
+      margin: 25px 0;
+    }
+    .social-icons a {
+      margin: 0 15px;
+      color: #ff80ab;
+      font-size: 2em;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-icons a:hover {
+      color: #fce4ec;
+      transform: scale(1.3);
+    }
+    footer {
+      margin-top: 25px;
+      color: #6b4e4e;
+      font-size: 1em;
+      background: rgba(255, 245, 250, 0.8);
+      padding: 15px;
+      border-radius: 12px;
+      border: 2px solid #f48fb1; /* Thêm viền trang trí */
+    }
+    .comment-form textarea {
+      width: 90%;
+      height: 100px;
+      padding: 12px;
+      margin: 12px 0;
+      border: 3px solid #f48fb1;
+      border-radius: 10px;
+      font-size: 1.1em;
+      color: #4a2c2a;
+    }
+    .comment-list {
+      text-align: left;
+      padding: 12px;
+    }
+    .comment-list p {
+      background: #fff;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border-left: 4px solid #ff80ab;
+      color: #4a2c2a;
+    }
+    #savedOutfits {
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 245, 250, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border: 2px solid #f48fb1; /* Thêm viền trang trí */
+    }
+    #savedOutfits p {
+      margin: 8px 0;
+      color: #6b4e4e;
+    }
+    .decor-icon {
+      position: absolute;
+      font-size: 2em;
+      color: rgba(241, 148, 168, 0.3);
+      z-index: -1;
+    }
+    .decor-icon.top-left {
+      top: 20px;
+      left: 20px;
+    }
+    .decor-icon.bottom-right {
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="C:\Users\dinhm\Downloads\Nhật ký Thời trang floral.png" alt="Decor Left" class="left" />
+    <img src="C:\Users\dinhm\Downloads\ChatGPT Image 15_59_03 25 thg 6, 2025.png" alt="Decor Right" class="right" />
+    <h1>STYLE DIARY</h1>
+    <p>Tỏa sáng theo cách của bạn!</p>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> Trang Chính</a></li>
+        <li><a href="#" onclick="showPage('mixMatch')"><i class="fas fa-camera-retro"></i> Mix & Match</a></li>
+        <li><a href="#" onclick="showPage('trends')"><i class="fas fa-chart-line"></i> Xu Hướng</a></li>
+        <li><a href="#" onclick="showPage('profile')"><i class="fas fa-user"></i> Hồ Sơ</a></li>
+        <li><a href="#" onclick="showPage('aiAdvice')"><i class="fas fa-robot"></i> Tư Vấn AI</a></li>
+        <li><a href="#" onclick="showPage('calendar')"><i class="fas fa-calendar"></i> Lịch Outfit</a></li>
+        <li><a href="#" onclick="showPage('community')"><i class="fas fa-users"></i> Cộng Đồng</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home" class="active">
+    <div class="intro-section">
+      <h2><i class="fas fa-heart"></i> Chào mừng đến với Style Diary – Hành trình phong cách của bạn</h2>
+      <p>Style Diary là nơi bạn khám phá và định hình phong cách thời trang của riêng mình. Với hàng loạt gợi ý từ phong cách Casual năng động, Công sở thanh lịch, Vintage hoài cổ hay Y2K thời thượng, các xu hướng mới nhất, đến tư vấn phong cách cá nhân hóa, chúng tôi đồng hành cùng bạn trên mọi chặng đường để bạn luôn tự tin và tỏa sáng. Lưu lại outfit yêu thích, lên lịch mặc đẹp mỗi ngày, nhận tư vấn AI thông minh và kết nối với cộng đồng yêu thời trang.</p>
+    </div>
+    <h2><i class="fas fa-star"></i> Thời trang không chỉ là quần áo - đó là cách bạn thể hiện chính mình!</h2>
+    <div class="description">Tại Style Diary, bạn sẽ tìm thấy nguồn cảm hứng từ những phong cách độc đáo, khám phá cách phối đồ phù hợp với cá tính, và ghi dấu ấn thời trang theo cách của riêng mình. Hãy bắt đầu cuộc hành trình thời trang đầy màu sắc ngay hôm nay!</div>
+    <button onclick="showPage('mixMatch')">Bắt đầu hành trình thời trang</button>
+  </main>
+
+  <main id="mixMatch">
+    <div class="section">
+      <h2><i class="fas fa-camera-retro"></i> Mix & Match</h2>
+      <div class="description">Tự do sáng tạo phong cách với hàng loạt gợi ý từ Casual đến Dạ hội! Hãy thử nghiệm và tìm ra bộ cánh hoàn hảo cho bạn.</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <div class="section">
+        <h3><i class="fas fa-shoe-prints"></i> Phong cách Casual năng động</h3>
+        <div class="outfits">
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (21).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 1')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (22).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 2')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (20).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 3')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (23).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 4')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (59).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 5')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (60).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 6')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (26).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 7')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\Inspiration outfit.jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 8')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\OneDrive\Desktop\StyleDiaryProject\images\tải xuống (24).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 9')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (56).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 10')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (57).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 11')">Lưu Outfit</button>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (58).jpeg" alt="Outfit Casual">
+            </div>
+            <button onclick="saveOutfit('Casual 12')">Lưu Outfit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h3><i class="fas fa-briefcase"></i> Phong cách Công sở</h3>
+      <div class="outfits">
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\4 mẫu chân váy công sở đang được yêu thích nhất.jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 1')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống.jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 2')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (11).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 3')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (17).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 4')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (18).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 5')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (15).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 6')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (9).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 7')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (8).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 8')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (3).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 9')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (4).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 10')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (5).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 11')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (6).jpeg" alt="Outfit Công sở">
+          </div>
+          <button onclick="saveOutfit('Công sở 12')">Lưu Outfit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-retro"></i> Phong cách Vintage</h3>
+      <div class="outfits">
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (29).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 1')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\Vintage là gì_ _ Hướng dẫn phối đồ với phong cách Vintage - CHIC.jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 2')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (36).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 3')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (31).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 4')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\ID：260421836.jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 5')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (44).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 6')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (40).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 7')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (33).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 8')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (42).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 9')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (34).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 10')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (35).jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 11')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\𝑆𝐴𝑉𝐸 = 𝐹𝐿𝑂𝑊 𝑀𝐸_@𝒉𝒐𝒂𝒏𝒈𝒕𝒉𝒊𝒒𝒖𝒚𝒆𝒏266.jpeg" alt="Outfit Vintage">
+          </div>
+          <button onclick="saveOutfit('Vintage 12')">Lưu Outfit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-flower"></i> Phong cách Dịu dàng Nữ tính</h3>
+      <div class="outfits">
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\✨ __BomBo Shop - Thời trang hottrend cho các nàng xinh đẹp__ ✨ 🌸 __[Sản phẩm mới về] 🌸 - Váy hoa vintage nhẹ nhàng nhưng vẫn đầy cuốn hút!__ 💃Bạn muốn một chiếc váy vừa nữ tính, vừa thoải mái để diện trong mọi .jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 1')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (52).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 2')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (49).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 3')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (50).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 4')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (61).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 5')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (43).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 6')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (53).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 7')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (62).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 8')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\rei _.. _! あ⃞ ପ꒰  ྀི◞ ◟ ꒱" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 9')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\@arrsseee_.jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 10')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (63).jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 11')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\𝘚𝘢𝘷𝘦 = 𝘍𝘰𝘭𝘭𝘰𝘸🍒.jpeg" alt="Outfit Dịu dàng">
+          </div>
+          <button onclick="saveOutfit('Dịu dàng 12')">Lưu Outfit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-star"></i> Phong cách Y2K (Thời trang 2000s)</h3>
+      <div class="outfits">
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\Phong cách y2k.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 1')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (64).jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 2')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (65).jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 3')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\outfits.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 4')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (66).jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 5')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\💙.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 6')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (67).jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 7')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\street  k-ulzzang fashion aesthetic_ xiaohongshu  ID：2690488971.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 8')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\𝐒𝐀𝐕𝐄 = 𝐅𝐋 𝐌𝐄.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 9')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (68).jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 10')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\ootd.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 11')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\fuyuka.jpeg" alt="Outfit Y2K">
+          </div>
+          <button onclick="saveOutfit('Y2K 12')">Lưu Outfit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-glass-cheers"></i> Phong cách Party Dạ hội</h3>
+      <div class="outfits">
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (69).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 1')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (70).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 2')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\Sexy Ball Gown Scoop Neck Champagne Beads Sequin Mini Short Formal 8th.jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 3')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (71).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 4')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (91).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 5')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (92).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 6')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (74).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 7')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (75).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 8')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (76).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 9')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (77).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 10')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\tải xuống (78).jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 11')">Lưu Outfit</button>
+        </div>
+        <div class="outfit">
+          <div class="image-container">
+            <img src="C:\Users\dinhm\Downloads\Váy cưới.jpeg" alt="Outfit Party">
+          </div>
+          <button onclick="saveOutfit('Party 12')">Lưu Outfit</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="savedOutfits">
+      <h3><i class="fas fa-bookmark"></i> Danh sách Outfit đã lưu:</h3>
+      <div id="savedOutfitList"></div>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <main id="trends">
+    <div class="section">
+      <h2><i class="fas fa-chart-line"></i> Xu Hướng</h2>
+      <div class="description">🌟 Xu Hướng Thời Trang Bốn Mùa
+Hãy để Style Diary đồng hành cùng bạn qua từng mùa trong năm! Từ sự nhẹ nhàng, tươi mới của mùa Xuân, đến vẻ rực rỡ, năng động của mùa Hè, từ sự ấm áp, lãng mạn của mùa Thu, đến phong cách ấm cúng, thời thượng của mùa Đông. Khám phá xu hướng thời trang độc đáo và làm mới phong cách của bạn mỗi mùa ngay hôm nay!</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <div class="section">
+        <h3><i class="fas fa-sun"></i> Xu Hướng Mùa Hè</h3>
+        <div class="outfits">
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (79).jpeg" alt="Outfit hè">
+            </div>
+            <p>Áo hai dây + Quần short jeans</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (80).jpeg" alt="Outfit hè">
+            </div>
+            <p>Đầm maxi hoa</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\Đừng bỏ lỡ 5 công thức lên đồ với chân váy xếp ly đỉnh nhất ở đây_ chan-vay-xep-ly-ao-thun-3-718e7822.jpeg" alt="Outfit hè">
+            </div>
+            <p>Áo thun + Váy ngắn xếp ly</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3><i class="fas fa-leaf"></i> Xu Hướng Mùa Thu</h3>
+        <div class="outfits">
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (81).jpeg" alt="Outfit thu">
+            </div>
+            <p>Áo cardigan + Chân váy</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\Quần skinny + Áo phông + Áo cardigan mỏng ngắn.jpeg" alt="Outfit thu">
+            </div>
+            <p>Quần skinny + Áo phông + Áo cardigan mỏng</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (82).jpeg" alt="Outfit thu">
+            </div>
+            <p>Áo sơ mi + Áo gile + Chân váy</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3><i class="fas fa-snowflake"></i> Xu Hướng Mùa Đông</h3>
+        <div class="outfits">
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (83).jpeg" alt="Outfit đông">
+            </div>
+            <p>Áo khoác len + Chân váy + Khăn choàng cổ</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (84).jpeg" alt="Outfit đông">
+            </div>
+            <p>Áo len cao cổ + Quần ống rộng</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (85).jpeg" alt="Outfit đông">
+            </div>
+            <p>Áo Khoác lông + Mũ lông + Chân váy ôm</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3><i class="fas fa-flower"></i> Xu Hướng Mùa Xuân</h3>
+        <div class="outfits">
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (88).jpeg" alt="Outfit xuân">
+            </div>
+            <p>Set váy dạ</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (89).jpeg" alt="Outfit xuân">
+            </div>
+            <p>Đầm trắng họa tiết đơn giản</p>
+          </div>
+          <div class="outfit">
+            <div class="image-container">
+              <img src="C:\Users\dinhm\Downloads\tải xuống (90).jpeg" alt="Outfit xuân">
+            </div>
+            <p>Áo dài cách tân</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <main id="profile">
+    <div class="section">
+      <h2><i class="fas fa-user"></i> Hồ Sơ Phong Cách</h2>
+      <div class="description">Tạo hồ sơ cá nhân để lưu trữ phong cách yêu thích và nhận gợi ý phù hợp với bạn!</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <form id="profileForm">
+        <input type="text" placeholder="Tên của bạn" id="name" required>
+        <br><br>
+        <input type="email" placeholder="Email của bạn" id="email" required>
+        <br><br>
+        <input type="number" placeholder="Chiều cao (cm)" id="heightProfile" required>
+        <br><br>
+        <input type="number" placeholder="Cân nặng (kg)" id="weightProfile" required>
+        <br><br>
+        <select id="stylePreference" required>
+          <option value="">Ưu tiên phong cách</option>
+          <option value="casual">Casual</option>
+          <option value="formal">Công sở</option>
+          <option value="vintage">Vintage</option>
+          <option value="Gentle">Dịu dàng</option>
+          <option value="Y2K">Y2K</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="saveProfile()">Lưu Hồ Sơ</button>
+      </form>
+      <div id="profileResult" class="section"></div>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <main id="aiAdvice">
+    <div class="section">
+      <h2><i class="fas fa-robot"></i> Tư Vấn Phong Cách AI</h2>
+      <div class="description">Để AI phân tích dáng người và gợi ý outfit hoàn hảo, giúp bạn tự tin hơn mỗi ngày!</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <form id="aiAdviceForm">
+        <label for="skinTone">Chọn màu da:</label>
+        <select id="skinTone" required>
+          <option value="">Chọn màu da</option>
+          <option value="trang">Trắng</option>
+          <option value="ngam">Ngăm</option>
+          <option value="nau">Nâu</option>
+        </select>
+        <br><br>
+        <label for="height">Chiều cao (cm):</label>
+        <input type="number" id="height" placeholder="Nhập chiều cao" required>
+        <br><br>
+        <label for="weight">Cân nặng (kg):</label>
+        <input type="number" id="weight" placeholder="Nhập cân nặng" required>
+        <br><br>
+        <button type="button" onclick="analyzeBodyType()">Phân Tích Dáng Người</button>
+        <br><br>
+        <div id="bodyTypeResult" class="section"></div>
+        <button type="button" onclick="suggestOutfitAI()">Gợi Ý Outfit</button>
+        <br><br>
+        <div id="aiSuggestions" class="section"></div>
+      </form>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <main id="calendar">
+    <div class="section">
+      <h2><i class="fas fa-calendar"></i> Lịch Outfit</h2>
+      <div class="description">Lên kế hoạch phong cách hàng ngày với lịch outfit tiện lợi và cá nhân hóa!</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <div class="calendar">
+        <label for="date">Chọn ngày:</label>
+        <input type="date" id="date" required>
+        <br><br>
+        <select id="outfitType" required>
+          <option value="">Chọn loại outfit</option>
+          <option value="casual">Casual</option>
+          <option value="formal">Công sở</option>
+          <option value="party">Party</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="addOutfit()">Thêm Outfit</button>
+        <div id="calendarList" class="section"></div>
+      </div>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <main id="community">
+    <div class="section">
+      <h2><i class="fas fa-users"></i> Cộng Đồng</h2>
+      <div class="description">Kết nối với những người yêu thời trang, chia sẻ ý tưởng và cảm hứng từ khắp nơi!</div>
+      <i class="fas fa-leaf decor-icon top-left"></i>
+      <i class="fas fa-heart decor-icon bottom-right"></i>
+      <div class="community-post">
+        <h3><i class="fas fa-comment"></i> Post 1</h3>
+        <p>Tôi vừa thử phối đồ mùa đông mới. Ai muốn xem?</p>
+      </div>
+      <div class="community-post">
+        <h3><i class="fas fa-comment"></i> Post 2</h3>
+        <p>Gợi ý outfit mùa hè: Áo thun trắng + quần short jeans + mũ rộng vành.</p>
+      </div>
+      <div class="community-post">
+        <h3><i class="fas fa-comment"></i> Post 3</h3>
+        <p>Bạn nào thích phong cách vintage thì vào đây nhé!</p>
+      </div>
+      <div class="comment-form">
+        <h3><i class="fas fa-pencil-alt"></i> Thêm Bình Luận</h3>
+        <textarea id="commentInput" placeholder="Nhập bình luận của bạn..."></textarea>
+        <button type="button" onclick="addComment()">Đăng Bình Luận</button>
+      </div>
+      <div id="commentList" class="comment-list"></div>
+    </div>
+    <button onclick="showPage('home')">Quay lại</button>
+  </main>
+
+  <div class="contact">
+    <div>
+      <h3><i class="fas fa-envelope"></i> Thông Tin Liên Lạc</h3>
+      <input type="email" placeholder="Email *">
+      <br>
+      <label><input type="checkbox"> Yes, subscribe me to your newsletter. *</label>
+      <br>
+      <button>Submit</button>
+    </div>
+    <div>
+      <h3><i class="fas fa-phone"></i> Liên Hệ</h3>
+      <p>0799548733</p>
+      <p>info@stylediary.com</p>
+      <p>411 Duong Kenh Tan Hoa, Hoa Thanh, Tan Phu, TP HCM</p>
+    </div>
+    <div>
+      <h3><i class="fas fa-file-alt"></i> Chính Sách</h3>
+      <p>Chính sách quyền riêng tư</p>
+      <p>Điều khoản sử dụng</p>
+      <p>Bản đồ trang web</p>
+    </div>
+  </div>
+  <div class="social-icons">
+    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <footer>
+    <p>© 2025 by Style Diary. Powered and secured by xAI.</p>
+  </footer>
+
+  <script>
+    let savedOutfits = [];
+
+    function showPage(pageId) {
+      const pages = document.querySelectorAll("main");
+      pages.forEach((page) => {
+        page.classList.remove("active");
+        page.style.display = "none";
+      });
+      const page = document.getElementById(pageId);
+      if (page) {
+        page.classList.add("active");
+        page.style.display = "block";
+      } else {
+        console.error("Page not found: ", pageId);
+      }
+    }
+
+    function saveProfile() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const height = document.getElementById("heightProfile").value;
+      const weight = document.getElementById("weightProfile").value;
+      const stylePreference = document.getElementById("stylePreference").value;
+      document.getElementById("profileResult").innerHTML = `
+        <p>Hồ sơ của bạn:</p>
+        <p>Tên: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Chiều cao: ${height} cm</p>
+        <p>Cân nặng: ${weight} kg</p>
+        <p>Phong cách ưa thích: ${stylePreference}</p>
+      `;
+    }
+
+    function analyzeBodyType() {
+      const height = parseFloat(document.getElementById("height").value);
+      const weight = parseFloat(document.getElementById("weight").value);
+      let bodyType = "";
+      if (height / weight >= 2) {
+        bodyType = "Dáng mảnh mai (Rectangle)";
+      } else if (weight / height >= 0.5) {
+        bodyType = "Dáng đậm người (Pear)";
+      } else {
+        bodyType = "Dáng cân đối (Hourglass)";
+      }
+      document.getElementById("bodyTypeResult").innerHTML = `<p>Dáng người của bạn: ${bodyType}</p>`;
+    }
+
+    function suggestOutfitAI() {
+      const bodyTypeResult = document.getElementById("bodyTypeResult").innerText;
+      const skinTone = document.getElementById("skinTone").value;
+      let outfitSuggestion = "";
+      if (bodyTypeResult.includes("Mảnh mai")) {
+        outfitSuggestion = `Áo croptop và váy chữ A. Gợi ý màu: ${skinTone === "trang" ? "Trắng hoặc pastel" : skinTone === "ngam" ? "Xanh lá" : "Nâu đất"}.`;
+      } else if (bodyTypeResult.includes("Đậm người")) {
+        outfitSuggestion = `Đầm dạ hội nhấn eo. Gợi ý màu: ${skinTone === "trang" ? "Đen hoặc vàng" : skinTone === "ngam" ? "Xanh navy" : "Đỏ đậm"}.`;
+      } else {
+        outfitSuggestion = `Áo blouse và quần jeans cạp cao. Gợi ý màu: ${skinTone === "trang" ? "Hồng pastel" : skinTone === "ngam" ? "Xanh dương" : "Cam đất"}.`;
+      }
+      document.getElementById("aiSuggestions").innerHTML = `<p>Gợi ý outfit: ${outfitSuggestion}</p>`;
+    }
+
+    function addOutfit() {
+      const date = document.getElementById("date").value;
+      const outfitType = document.getElementById("outfitType").value;
+      if (date && outfitType) {
+        const calendarList = document.getElementById("calendarList");
+        const newEvent = document.createElement("p");
+        newEvent.textContent = `${new Date(date).toLocaleDateString('vi-VN')} - Outfit ${outfitType}: [Chi tiết outfit sẽ được thêm sau]`;
+        calendarList.appendChild(newEvent);
+      }
+    }
+
+    function addComment() {
+      const commentInput = document.getElementById("commentInput").value;
+      if (commentInput) {
+        const commentList = document.getElementById("commentList");
+        const newComment = document.createElement("p");
+        newComment.textContent = `${new Date().toLocaleString('vi-VN')} - ${commentInput}`;
+        commentList.appendChild(newComment);
+        document.getElementById("commentInput").value = "";
+      }
+    }
+
+    function saveOutfit(outfitName) {
+      if (!savedOutfits.includes(outfitName)) {
+        savedOutfits.push(outfitName);
+        updateSavedOutfits();
+      }
+    }
+
+    function updateSavedOutfits() {
+      const savedOutfitList = document.getElementById("savedOutfitList");
+      savedOutfitList.innerHTML = "";
+      savedOutfits.forEach(outfit => {
+        const p = document.createElement("p");
+        p.textContent = outfit;
+        savedOutfitList.appendChild(p);
+      });
+    }
+  </script>
+</body>
+</html>
